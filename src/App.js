@@ -201,7 +201,10 @@ function App() {
       bottom: (card.current.offsetTop + dragCardVector.y) + card.current.offsetHeight
     }
 
+    //run through alle areas in drop area and check them for collison
     for (const area of dropAreas) {
+      if(area.current.innerText.length > 0) continue
+
       const dropAreaMatrix = {
         right: area.current.offsetLeft + area.current.offsetWidth,
         left: area.current.offsetLeft,
@@ -209,7 +212,7 @@ function App() {
         bottom: area.current.offsetTop + area.current.offsetHeight
       }
   
-      //check collision
+      //check collision matrixes of the to squares
       if((
         (dragCardMatrix.bottom < dropAreaMatrix.bottom && dragCardMatrix.bottom > dropAreaMatrix.top) && 
         ((dragCardMatrix.right < dropAreaMatrix.right && dragCardMatrix.right > dropAreaMatrix.left) || 
@@ -226,9 +229,9 @@ function App() {
             //add it to collsions array
             dargCollisions.unshift(area)
             setDropAreaInFocus(dargCollisions[0])
-            //check to see if the drop area is valied 
-          }
+            //check to see if the drop area is valid 
 
+          }
         }
         else {
           if(dargCollisions.includes(area)){ 
@@ -242,10 +245,12 @@ function App() {
   //When the card is dragged over one of the drop areas the number is added to that area 
   const handelDragEnd = () => {
     setShowDropAreas(false)
+    //check to see if an area has focus, if not just let the card float back home
     if(dropAreaInFocus == null){
       setDraggedCard(null)
       return
     }
+    
     if(dropAreaInFocus == dropAreaTop){ 
       dropAreas.shift()
       setTimesDeviationTop(parseInt(draggedCard.current.innerText))
@@ -254,6 +259,7 @@ function App() {
       dropAreas.pop()
       setTimesDeviationBottom(parseInt(draggedCard.current.innerText))
     }
+    setDropAreaInFocus(null)
   }
   
   useEffect(() => {
