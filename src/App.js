@@ -242,8 +242,10 @@ function App() {
     }
   }
 
+
   //When the card is dragged over one of the drop areas the number is added to that area 
   const handelDragEnd = () => {
+    setIsNumberCardValid(true)
     setShowDropAreas(false)
     //check to see if an area has focus, if not just let the card float back home
     if(dropAreaInFocus == null){
@@ -251,7 +253,7 @@ function App() {
       return
     }
     const cardParsedValue = parseInt(draggedCard.current.innerText)
-    console.log(typeof timesDeviationBottom);
+    // console.log(typeof timesDeviationBottom);
 
     if(dropAreaInFocus == dropAreaTop){
       if(timesDeviationBottom == '' || cardParsedValue == timesDeviationBottom){
@@ -268,25 +270,26 @@ function App() {
     setDropAreaInFocus(null)
   }
   
+
   useEffect(() => {
-    // console.log("is card" , isCardOver);
-  }, [isCardOver])
-  
-  const [dropAreaInFocus, setDropAreaInFocus] = useState(null)
-  const [showDropAreas, setShowDropAreas] = useState(false)
+      // console.log("is card" , isCardOver);
+    }, [isCardOver])
+    
+    const [dropAreaInFocus, setDropAreaInFocus] = useState(null)
+    const [showDropAreas, setShowDropAreas] = useState(false)
 
-  const [timesDeviationTop, setTimesDeviationTop] = useState('')
-  const [timesDeviationBottom, setTimesDeviationBottom] = useState('')
+    const [timesDeviationTop, setTimesDeviationTop] = useState('')
+    const [timesDeviationBottom, setTimesDeviationBottom] = useState('')
 
-  const[resultDeviations, setResultDeviations] = useState({
-    top: '',
-    bottom: ''
+    const[resultDeviations, setResultDeviations] = useState({
+      top: '',
+      bottom: ''
   })
 
   const [showResult, setShowResult] = useState(false)
 
   useEffect(() => {
-    console.log(timesDeviationTop, timesDeviationBottom);
+    // console.log(timesDeviationTop, timesDeviationBottom);
     if(timesDeviationTop != '' && timesDeviationBottom != ''){
       setResultDeviations({
         top: (1 * timesDeviationTop),
@@ -300,6 +303,40 @@ function App() {
       }, 1800)
     }
   }, [timesDeviationTop, timesDeviationBottom])
+
+
+  const handelRestart = () => {
+    setResultDeviations({
+      top: '',
+      bottom: ''
+    })
+
+    setTimesDeviationTop('')
+    setTimesDeviationBottom('')
+    setIsCardOver(false)
+    setDraggedCard(null)
+    let dargCollisions = []
+    setShowResult(false)
+    setTopValue(1)
+    setBottomValue(2)
+  }
+
+  const [isNumberCardValid, setIsNumberCardValid] = useState(true)
+
+  const handelDragStart = (cardText) => {
+    return
+    setShowDropAreas(true)
+    const cardParsedValue = parseInt(cardText)
+    // console.log(typeof timesDeviationBottom);
+
+      if(timesDeviationBottom == '' || cardParsedValue == timesDeviationBottom){
+        setIsNumberCardValid(false)
+      } 
+      else if(timesDeviationTop == '' || cardParsedValue == timesDeviationTop){
+        setIsNumberCardValid(false)
+      }
+  }
+
 
   return (
     <div className="App">
@@ -318,7 +355,9 @@ function App() {
                 drag 
                 dragConstraints={{left:0, top:0, right:0 , bottom:0}}
                 onDrag={() => handelDrag(cardValue2)} 
-                className="drag-number"
+                className={`drag-number
+                  ${isNumberCardValid && 'valid'}
+                `}
               >2</motion.div>
             </li>
             <li className="drag-number-cell">
@@ -330,7 +369,9 @@ function App() {
                 drag 
                 dragConstraints={{left:0, top:0, right:0 , bottom:0}}
                 onDrag={() => handelDrag(cardValue3)} 
-                className="drag-number"
+                className={`drag-number
+                  ${isNumberCardValid && 'valid'}
+                `}
               >3</motion.div>
             </li>
             <li className="drag-number-cell">
@@ -342,7 +383,9 @@ function App() {
                 drag 
                 dragConstraints={{left:0, top:0, right:0 , bottom:0}}
                 onDrag={() => handelDrag(cardValue4)} 
-                className="drag-number"
+                className={`drag-number
+                  ${isNumberCardValid && 'valid'}
+                `}
               >4</motion.div>
             </li>
             <li className="drag-number-cell">
@@ -354,7 +397,9 @@ function App() {
                 drag 
                 dragConstraints={{left:0, top:0, right:0 , bottom:0}}
                 onDrag={() => handelDrag(cardValue5)} 
-                className="drag-number"
+                className={`drag-number
+                  ${isNumberCardValid && 'valid'}
+                `}
               >5</motion.div>
             </li>
           </motion.ul>
@@ -489,6 +534,7 @@ function App() {
             onChange={(e,val) => setBottomValue(val)}
           /> */}
         </motion.div>
+        <button onClick={e => handelRestart()} className="restart-btn">Omstart</button>
       </header>
       
     </div>
