@@ -292,3 +292,7 @@ ul {
   cursor: pointer;
   margin-top: 20px;
 }
+
+#root > div > header > div.drag-area-container > ul.deviation-frames-container > li.deviation-frame.undefined-multiplication.equals > div.deviation-top.show {
+  top: 3px
+}
