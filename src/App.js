@@ -250,14 +250,20 @@ function App() {
       setDraggedCard(null)
       return
     }
-    
-    if(dropAreaInFocus == dropAreaTop){ 
-      dropAreas.shift()
-      setTimesDeviationTop(parseInt(draggedCard.current.innerText))
+    const cardParsedValue = parseInt(draggedCard.current.innerText)
+    console.log(typeof timesDeviationBottom);
+
+    if(dropAreaInFocus == dropAreaTop){
+      if(timesDeviationBottom == '' || cardParsedValue == timesDeviationBottom){
+        dropAreas.shift()
+        setTimesDeviationTop(cardParsedValue)
+      } 
     }
     else{
-      dropAreas.pop()
-      setTimesDeviationBottom(parseInt(draggedCard.current.innerText))
+      if(timesDeviationTop == '' || cardParsedValue == timesDeviationTop){
+        dropAreas.pop()
+        setTimesDeviationBottom(cardParsedValue)
+      }
     }
     setDropAreaInFocus(null)
   }
@@ -354,10 +360,15 @@ function App() {
           </motion.ul>
 
           <ul className="deviation-frames-container">
-            <li className="deviation-frame">
+            <li className="deviation-frame equals">
               <div className="deviation-top">1</div>
               <div className="deviation-bar"></div>
               <div className="deviation-bottom">2</div>
+            </li>
+            <li className="deviation-frame">
+              <div className="deviation-top times-symbol">1</div>
+              <div className="deviation-bar"></div>
+              <div className="deviation-bottom times-symbol">2</div>
             </li>
             <li 
               className={`deviation-frame undefined-multiplication ${showResult && 'equals'}`}
@@ -366,9 +377,11 @@ function App() {
                 ref={dropAreaTop} 
                 style={{
                     border: (showDropAreas && timesDeviationTop == '') ? 'dotted 2px' : '',
-                    borderColor: (dropAreaInFocus == dropAreaTop) ? 'green' : ''
+                    borderColor: (dropAreaInFocus == dropAreaTop) ? 'green' : '',
+                    bottom: '-7px',
+                    position: 'relative'
                 }} 
-                className={`deviation-top times-symbol ${timesDeviationBottom != '' && 'show'}`}
+                className={`deviation-top  ${timesDeviationBottom != '' && 'show'}`}
               >{timesDeviationTop}</div>
               <div className={`deviation-bar ${(timesDeviationTop != '' || timesDeviationBottom != '') && 'show'}`}></div>
 
@@ -376,9 +389,11 @@ function App() {
                 ref={dropAreaBottom}
                 style={{
                     border: (showDropAreas && timesDeviationBottom == '') ? 'dotted 2px' : '',
-                    borderColor: (dropAreaInFocus == dropAreaBottom) ? 'green' : ''
+                    borderColor: (dropAreaInFocus == dropAreaBottom) ? 'green' : '',
+                    bottom: '-1px',
+                    position: 'relative'
                 }}
-                className={`deviation-bottom times-symbol ${timesDeviationBottom != '' && 'show'}`}
+                className={`deviation-bottom ${timesDeviationBottom != '' && 'show'}`}
               > 
                 {timesDeviationBottom}
               </div>
@@ -454,8 +469,8 @@ function App() {
               }
               <defs>
                 <radialGradient cy="100%" id="myGradient">
-                  <stop offset="10%" stop-color="#8CDBFC" />
-                  <stop offset="95%" stop-color="#70B0F6" />
+                  <stop offset="10%" stopColor="#8CDBFC" />
+                  <stop offset="95%" stopColor="#70B0F6" />
                 </radialGradient>
               </defs>
             
