@@ -226,14 +226,26 @@ ul {
   border: 1px solid #7D38D6;
   box-sizing: border-box;
   border-radius: 11px;
-
+  
   /* font-family: Roboto;
   font-style: normal;
   font-weight: normal; */
   font-size: 30px;
   line-height: 37px;
   padding: 7px 10px;
+  opacity: 1;
+  transition: all .2s;
 }
+
+.drag-number {
+  opacity: 0.5;
+  transition: all .2s;
+}
+.drag-number.valid {
+  opacity: 1;
+  transition: all .2s;
+}
+
 
 .times-symbol {
   position: relative;
@@ -255,4 +267,28 @@ ul {
 .times-symbol.show::before {
   opacity: 1;
   transition: all .2s .4s; 
+}
+
+.restart-btn {
+  position: static;
+  width: 98.05px;
+  height: 46px;
+  left: calc(50% - 98.05px/2);
+  top: calc(50% - 46px/2);
+
+  background: #7D38D6;
+  border-radius: 11px;
+
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 22px;  
+  text-align: center;
+  /* text-transform: uppercase; */
+  letter-spacing: 0.25px;
+  color: #FCFCFC;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
 }
