@@ -179,11 +179,13 @@ function App() {
   const dropAreas = [dropAreaTop, dropAreaBottom]
 
   const [isCardOver, setIsCardOver] = useState(false)
-  const [dragedCard, setDragedCard] = useState(null)
+  const [draggedCard, setDraggedCard] = useState(null)
 
-
+  let dargCollisions = [] 
 
   const handelDrag = (card) => {
+
+    setDraggedCard(card)
 
     const tmpVectorArray = card.current.style.transform.replace('translate3d(', '' ).replace(', 0px) scale(1, 1)', '').replace('px', '').replace('px', '').split(',')
 
@@ -199,7 +201,7 @@ function App() {
       bottom: (card.current.offsetTop + dragCardVector.y) + card.current.offsetHeight
     }
 
-    dropAreas.forEach(area => {
+    for (const area of dropAreas) {
       const dropAreaMatrix = {
         right: area.current.offsetLeft + area.current.offsetWidth,
         left: area.current.offsetLeft,
@@ -216,26 +218,42 @@ function App() {
         (dragCardMatrix.top > dropAreaMatrix.top && dragCardMatrix.top < dropAreaMatrix.bottom) &&
         ((dragCardMatrix.right < dropAreaMatrix.right && dragCardMatrix.right > dropAreaMatrix.left) || 
         (dragCardMatrix.left < dropAreaMatrix.right && dragCardMatrix.left > dropAreaMatrix.left))
-        )) {
-          if(isCardOver == false) {
-            setIsCardOver(true)
-            setDropAreaInFocus(area)
-          }}
+        )) 
+        {
+          //chacek to see if area has been already added to collison array
+          if(dargCollisions.includes(area)) break
+          else {
+            //add it to collsions array
+            dargCollisions.unshift(area)
+            setDropAreaInFocus(dargCollisions[0])
+            //check to see if the drop area is valied 
+          }
+
+        }
         else {
-          if(isCardOver == true) {
-            setIsCardOver(false)
-            setDropAreaInFocus(null)
+          if(dargCollisions.includes(area)){ 
+            dargCollisions.splice(dargCollisions.indexOf(area))
+            setDropAreaInFocus(dargCollisions[0])
           }
         }
-    });
-    // console.log(element?.x, dropAreaRef.current.offsetTop);
-    // console.log(info.point.y == dropAreaRef.current.offsetTop);
+    }
   }
 
+  //When the card is dragged over one of the drop areas the number is added to that area 
   const handelDragEnd = () => {
     setShowDropAreas(false)
-    if(setDropAreaInFocus == null) return
-
+    if(dropAreaInFocus == null){
+      setDraggedCard(null)
+      return
+    }
+    if(dropAreaInFocus == dropAreaTop){ 
+      dropAreas.shift()
+      setTimesDeviationTop(parseInt(draggedCard.current.innerText))
+    }
+    else{
+      dropAreas.pop()
+      setTimesDeviationBottom(parseInt(draggedCard.current.innerText))
+    }
   }
   
   useEffect(() => {
@@ -248,6 +266,29 @@ function App() {
   const [timesDeviationTop, setTimesDeviationTop] = useState('')
   const [timesDeviationBottom, setTimesDeviationBottom] = useState('')
 
+  const[resultDeviations, setResultDeviations] = useState({
+    top: '',
+    bottom: ''
+  })
+
+  const [showResult, setShowResult] = useState(false)
+
+  useEffect(() => {
+    console.log(timesDeviationTop, timesDeviationBottom);
+    if(timesDeviationTop != '' && timesDeviationBottom != ''){
+      setResultDeviations({
+        top: (1 * timesDeviationTop),
+        bottom: (2 * timesDeviationBottom)
+      })
+      setShowResult(true)
+
+      setTimeout(() => {
+        setBottomValue(2 * timesDeviationBottom)
+        setTopValue(1 * timesDeviationTop)
+      }, 1800)
+    }
+  }, [timesDeviationTop, timesDeviationBottom])
+
   return (
     <div className="App">
       <header className="App-header">
@@ -258,13 +299,13 @@ function App() {
           <motion.ul className="drag-numbers-container">
             <li className="drag-number-cell">
               <motion.div 
-                ref={cardValue2}
+                ref={cardValue2} 
                 dragElastic={1}
                 onDragStart={() => setShowDropAreas(true)}
-                onDragEnd={() => setShowDropAreas(false)}
+                onDragEnd={() => handelDragEnd()}
                 drag 
                 dragConstraints={{left:0, top:0, right:0 , bottom:0}}
-                onDrag={() => handelDrag(cardValue2)}
+                onDrag={() => handelDrag(cardValue2)} 
                 className="drag-number"
               >2</motion.div>
             </li>
@@ -280,6 +321,30 @@ function App() {
                 className="drag-number"
               >3</motion.div>
             </li>
+            <li className="drag-number-cell">
+              <motion.div 
+                ref={cardValue4} 
+                dragElastic={1}
+                onDragStart={() => setShowDropAreas(true)}
+                onDragEnd={() => handelDragEnd()}
+                drag 
+                dragConstraints={{left:0, top:0, right:0 , bottom:0}}
+                onDrag={() => handelDrag(cardValue4)} 
+                className="drag-number"
+              >4</motion.div>
+            </li>
+            <li className="drag-number-cell">
+              <motion.div 
+                ref={cardValue5} 
+                dragElastic={1}
+                onDragStart={() => setShowDropAreas(true)}
+                onDragEnd={() => handelDragEnd()}
+                drag 
+                dragConstraints={{left:0, top:0, right:0 , bottom:0}}
+                onDrag={() => handelDrag(cardValue5)} 
+                className="drag-number"
+              >5</motion.div>
+            </li>
           </motion.ul>
 
           <ul className="deviation-frames-container">
@@ -288,36 +353,41 @@ function App() {
               <div className="deviation-bar"></div>
               <div className="deviation-bottom">2</div>
             </li>
-            <li className="deviation-frame undefined-multiplication">
+            <li 
+              className={`deviation-frame undefined-multiplication ${showResult && 'equals'}`}
+            >
               <div 
                 ref={dropAreaTop} 
                 style={{
-                    border: showDropAreas ? 'dotted 2px' : '',
-                    borderColor: (isCardOver && dropAreaInFocus == dropAreaTop) ? 'red' : ''
+                    border: (showDropAreas && timesDeviationTop == '') ? 'dotted 2px' : '',
+                    borderColor: (dropAreaInFocus == dropAreaTop) ? 'green' : ''
                 }} 
-                className="deviation-top"
+                className={`deviation-top times-symbol ${timesDeviationBottom != '' && 'show'}`}
               >{timesDeviationTop}</div>
-              <div className="deviation-bar"></div>
+              <div className={`deviation-bar ${(timesDeviationTop != '' || timesDeviationBottom != '') && 'show'}`}></div>
+
               <div 
                 ref={dropAreaBottom}
                 style={{
-                    border: showDropAreas ? 'dotted 2px' : '',
-                    borderColor: (isCardOver && dropAreaInFocus == dropAreaBottom) ? 'red' : ''
-                }} 
-                className="deviation-bottom"
-              >{timesDeviationBottom}</div>
+                    border: (showDropAreas && timesDeviationBottom == '') ? 'dotted 2px' : '',
+                    borderColor: (dropAreaInFocus == dropAreaBottom) ? 'green' : ''
+                }}
+                className={`deviation-bottom times-symbol ${timesDeviationBottom != '' && 'show'}`}
+              > 
+                {timesDeviationBottom}
+              </div>
             </li>
-            <li className="deviation-frame">
-              <div className="deviation-top"></div>
+            <li className={`deviation-frame last-frame ${resultDeviations.top != '' && 'show'}`}>
+              <div className="deviation-top">{resultDeviations.top}</div>
               <div className="deviation-bar"></div>
-              <div className="deviation-bottom"></div>
+              <div className="deviation-bottom">{resultDeviations.bottom}</div>
             </li>
           </ul>
         {/* <div ref={dropAreaRef} className="drop-area"></div> */}
         </div>
 
 
-        <DragDrop/>
+        {/* <DragDrop/> */}
 
 
       {/* <Example/> */}
@@ -370,12 +440,18 @@ function App() {
                     onClick={() => test(idx)} 
                     key={idx} 
                     d={dpath} 
-                    fill={coloredPices.includes(idx) ? "#FA9D10" : "#ffffff"} 
+                    fill={coloredPices.includes(idx) ? "url('#myGradient')" : "#ffffff"} 
                     stroke="#333333" strokeWidth="1"/>
                 )) : (
-                  <circle cx="106" cy="106" r="74.5" fill="#FA9D10" stroke="#333333"/>
+                  <circle cx="106" cy="106" r="74.5" fill="url('#myGradient')" stroke="#333333"/>
                 )
               }
+              <defs>
+                <radialGradient cy="100%" id="myGradient">
+                  <stop offset="10%" stop-color="#8CDBFC" />
+                  <stop offset="95%" stop-color="#70B0F6" />
+                </radialGradient>
+              </defs>
             
             </motion.svg>
           </motion.div>
