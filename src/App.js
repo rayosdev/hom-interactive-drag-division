@@ -329,13 +329,13 @@ function App() {
   const [isNumberCardValid, setIsNumberCardValid] = useState(true)
 
 
-  const handelDragStart = () => {
-    setShowDropAreas(true)
-  }
+  // const handelDragStart = () => {
+  //   setShowDropAreas(true)
+  // }
 
-  useEffect(() => {
+  // useEffect(() => {
     
-  }, [draggedCard])
+  // }, [draggedCard])
 
 
   return (
@@ -350,9 +350,8 @@ function App() {
               <motion.div 
                 ref={cardValue2} 
                 dragElastic={1}
-                onDragStart={() => setShowDropAreas(true)}
                 onDragEnd={() => handelDragEnd()}
-                drag 
+                drag
                 dragConstraints={{left:0, top:0, right:0 , bottom:0}}
                 onDrag={() => handelDrag(cardValue2)} 
                 className={`drag-number
