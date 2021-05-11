@@ -98,12 +98,16 @@ body {
   font-size: 40px;
 }
 
-.drop-area {
+/* .drop-area {
   width: 50px;
   height: 70px;
   border: dotted;
   border-radius: 15px;
-}
+} */
+
+/* .drop-area.show {
+  
+} */
 
 
 ul {
@@ -148,7 +152,7 @@ ul {
   grid-row: 1/4;
   align-self: center;
   padding: 8px;
-  opacity: 1;
+  opacity: 0;
   transition: all 2s 0.2s;
 }
 
@@ -180,7 +184,7 @@ ul {
 .deviation-top {
   min-width: 2ch;
   min-height: 1.2ch;
-  bottom: -5px;
+  /* bottom: -5px; */
 }
 
 .undefined-multiplication .deviation-top {
@@ -197,8 +201,8 @@ ul {
 
 .undefined-multiplication .deviation-bar {
   opacity: 0.3;
-  margin-top: 3px;
-  margin-bottom: 3px;
+  /* margin-top: 3px;
+  margin-bottom: 3px; */
 }
 
 .undefined-multiplication .deviation-bar.show {
@@ -206,19 +210,31 @@ ul {
   transition: all 0.5s 0.5s;
 }
 
-.undefined-multiplication .deviation-top,
-.undefined-multiplication .deviation-bottom
-{
-  /* border: dotted 2px; */
-  height: 2.5ch;
+.drop-area {
+  height: 2.6ch;
   border-radius: 10px;
   margin-left: 10px;
+  border-style: dotted;
+  border-width: 2px;
+  border-color: rgba(0,0,0,0);
 }
+.drop-area.show {
+  border-color: black;
+}
+.drop-area.drop-color-green {
+  border-color: green;
+}
+.drop-area.drop-color-red {
+  border-color: red;
+  background: rgb(255,0,0,0.05);
+}
+
 
 .drag-numbers-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .drag-number {
@@ -236,16 +252,6 @@ ul {
   opacity: 1;
   /* transition: all .2s; */
 }
-
-.drag-number {
-  /* opacity: 0.5;
-  transition: all .2s; */
-}
-.drag-number.valid {
-  /* opacity: 1;
-  transition: all .2s; */
-}
-
 
 .times-symbol {
   position: relative;

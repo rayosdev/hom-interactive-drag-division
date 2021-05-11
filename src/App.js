@@ -27,14 +27,13 @@ function App() {
   const piesDPaths = {
     
     2:[
-      
       "M106 31C125.891 31 144.968 38.9018 159.033 52.967C173.098 67.0322 181 86.1088 181 106C181 125.891 173.098 144.968 159.033 159.033C144.968 173.098 125.891 181 106 181L106 106L106 31Z",
       "M106 181C86.1088 181 67.0322 173.098 52.967 159.033C38.9018 144.968 31 125.891 31 106C31 86.1088 38.9018 67.0322 52.967 52.967C67.0322 38.9018 86.1088 31 106 31L106 106L106 181Z"
     ],
-    3:["M105.952 31.0519C119.117 31.0519 132.05 34.5174 143.452 41.1C154.853 47.6826 164.321 57.1505 170.904 68.5519C177.486 79.9533 180.952 92.8866 180.952 106.052C180.952 119.217 177.486 132.15 170.904 143.552L105.952 106.052L105.952 31.0519Z",
-"M170.904 143.552C164.321 154.953 154.853 164.421 143.452 171.004C132.05 177.586 119.117 181.052 105.952 181.052C92.7867 181.052 79.8533 177.586 68.4519 171.004C57.0505 164.421 47.5826 154.953 41 143.552L105.952 106.052L170.904 143.552Z",
-"M41 143.552C34.4174 132.15 30.9519 119.217 30.9519 106.052C30.9519 92.8867 34.4174 79.9533 41 68.5519C47.5826 57.1505 57.0505 47.6826 68.4519 41.1C79.8534 34.5174 92.7867 31.0519 105.952 31.0519L105.952 106.052L41 143.552Z"
-
+    3:[
+      "M105.952 31.0519C119.117 31.0519 132.05 34.5174 143.452 41.1C154.853 47.6826 164.321 57.1505 170.904 68.5519C177.486 79.9533 180.952 92.8866 180.952 106.052C180.952 119.217 177.486 132.15 170.904 143.552L105.952 106.052L105.952 31.0519Z",
+      "M170.904 143.552C164.321 154.953 154.853 164.421 143.452 171.004C132.05 177.586 119.117 181.052 105.952 181.052C92.7867 181.052 79.8533 177.586 68.4519 171.004C57.0505 164.421 47.5826 154.953 41 143.552L105.952 106.052L170.904 143.552Z",
+      "M41 143.552C34.4174 132.15 30.9519 119.217 30.9519 106.052C30.9519 92.8867 34.4174 79.9533 41 68.5519C47.5826 57.1505 57.0505 47.6826 68.4519 41.1C79.8534 34.5174 92.7867 31.0519 105.952 31.0519L105.952 106.052L41 143.552Z"
     ],
     4:[
       "M106 31C115.849 31 125.602 32.9399 134.701 36.709C143.801 40.4781 152.069 46.0026 159.033 52.967C165.997 59.9314 171.522 68.1993 175.291 77.2988C179.06 86.3982 181 96.1509 181 106L106 106L106 31Z",
@@ -50,13 +49,11 @@ function App() {
       "M35.9665 79.1074C41.6425 64.3209 51.8539 51.7109 65.1371 43.0847C78.4203 34.4585 94.0935 30.2588 109.91 31.0878L105.985 105.985L35.9665 79.1074Z"
     ],
     6:[
-      
-"M105.952 31.0519C119.117 31.0519 132.05 34.5174 143.452 41.1C154.853 47.6826 164.321 57.1505 170.904 68.5519L105.952 106.052L105.952 31.0519Z",
-"M170.904 68.5519C177.486 79.9534 180.952 92.8867 180.952 106.052C180.952 119.217 177.486 132.15 170.904 143.552L105.952 106.052L170.904 68.5519Z",
-"M170.904 143.552C164.321 154.953 154.853 164.421 143.452 171.004C132.05 177.586 119.117 181.052 105.952 181.052L105.952 106.052L170.904 143.552Z",
-"M41 143.552C34.4174 132.15 30.9519 119.217 30.9519 106.052C30.9519 92.8867 34.4174 79.9534 41 68.5519L105.952 106.052L41 143.552Z","M41 68.5519C47.5826 57.1504 57.0505 47.6826 68.4519 41.1C79.8534 34.5174 92.7867 31.0519 105.952 31.0519L105.952 106.052L41 68.5519Z",
-"M105.952 181.052C92.7866 181.052 79.8533 177.586 68.4519 171.004C57.0505 164.421 47.5826 154.953 41 143.552L105.952 106.052L105.952 181.052Z"
-
+      "M105.952 31.0519C119.117 31.0519 132.05 34.5174 143.452 41.1C154.853 47.6826 164.321 57.1505 170.904 68.5519L105.952 106.052L105.952 31.0519Z",
+      "M170.904 68.5519C177.486 79.9534 180.952 92.8867 180.952 106.052C180.952 119.217 177.486 132.15 170.904 143.552L105.952 106.052L170.904 68.5519Z",
+      "M170.904 143.552C164.321 154.953 154.853 164.421 143.452 171.004C132.05 177.586 119.117 181.052 105.952 181.052L105.952 106.052L170.904 143.552Z",
+      "M41 143.552C34.4174 132.15 30.9519 119.217 30.9519 106.052C30.9519 92.8867 34.4174 79.9534 41 68.5519L105.952 106.052L41 143.552Z","M41 68.5519C47.5826 57.1504 57.0505 47.6826 68.4519 41.1C79.8534 34.5174 92.7867 31.0519 105.952 31.0519L105.952 106.052L41 68.5519Z",
+      "M105.952 181.052C92.7866 181.052 79.8533 177.586 68.4519 171.004C57.0505 164.421 47.5826 154.953 41 143.552L105.952 106.052L105.952 181.052Z"
     ],
     7:[
       "M135.78 37.3262C146.108 41.8384 155.286 48.6203 162.632 57.1679C169.979 65.7154 175.304 75.8087 178.213 86.6976L105.753 106.053L135.78 37.3262Z",
@@ -69,13 +66,13 @@ function App() {
     ],
     8:[
       "M159.099 53.033C166.063 59.9974 171.588 68.2653 175.357 77.3648C179.126 86.4642 181.066 96.2169 181.066 106.066H106.066L159.099 53.033Z",
-"M181.066 106.066C181.066 115.915 179.126 125.668 175.357 134.767C171.588 143.867 166.063 152.135 159.099 159.099L106.066 106.066H181.066Z",
-"M159.099 159.099C152.135 166.063 143.867 171.588 134.767 175.357C125.668 179.126 115.915 181.066 106.066 181.066V106.066L159.099 159.099Z",
-"M106.066 31.066C115.915 31.066 125.668 33.006 134.767 36.7751C143.867 40.5442 152.135 46.0686 159.099 53.033L106.066 106.066V31.066Z",
-"M53.033 53.033C59.9974 46.0686 68.2654 40.5442 77.3648 36.7751C86.4642 33.006 96.2169 31.066 106.066 31.066V106.066L53.033 53.033Z",
-"M31.066 106.066C31.066 96.2169 33.006 86.4642 36.7751 77.3648C40.5442 68.2654 46.0686 59.9974 53.033 53.033L106.066 106.066H31.066Z",
-"M53.0331 159.099C46.0687 152.135 40.5442 143.867 36.7751 134.767C33.006 125.668 31.0661 115.915 31.0661 106.066H106.066L53.0331 159.099Z",
-"M106.066 181.066C96.2169 181.066 86.4642 179.126 77.3648 175.357C68.2654 171.588 59.9974 166.063 53.033 159.099L106.066 106.066V181.066Z"
+      "M181.066 106.066C181.066 115.915 179.126 125.668 175.357 134.767C171.588 143.867 166.063 152.135 159.099 159.099L106.066 106.066H181.066Z",
+      "M159.099 159.099C152.135 166.063 143.867 171.588 134.767 175.357C125.668 179.126 115.915 181.066 106.066 181.066V106.066L159.099 159.099Z",
+      "M106.066 31.066C115.915 31.066 125.668 33.006 134.767 36.7751C143.867 40.5442 152.135 46.0686 159.099 53.033L106.066 106.066V31.066Z",
+      "M53.033 53.033C59.9974 46.0686 68.2654 40.5442 77.3648 36.7751C86.4642 33.006 96.2169 31.066 106.066 31.066V106.066L53.033 53.033Z",
+      "M31.066 106.066C31.066 96.2169 33.006 86.4642 36.7751 77.3648C40.5442 68.2654 46.0686 59.9974 53.033 53.033L106.066 106.066H31.066Z",
+      "M53.0331 159.099C46.0687 152.135 40.5442 143.867 36.7751 134.767C33.006 125.668 31.0661 115.915 31.0661 106.066H106.066L53.0331 159.099Z",
+      "M106.066 181.066C96.2169 181.066 86.4642 179.126 77.3648 175.357C68.2654 171.588 59.9974 166.063 53.033 159.099L106.066 106.066V181.066Z"
 
     ],
     9:[
@@ -91,16 +88,15 @@ function App() {
     ],
     10:[
       "M105.76 31.0602C121.599 31.0602 137.03 36.0743 149.844 45.3839L105.76 106.06L105.76 31.0602Z",
-"M149.844 45.3839C162.658 54.6935 172.195 67.8207 177.089 82.8839L105.76 106.06L149.844 45.3839Z",
-"M177.089 82.8839C181.984 97.9472 181.984 114.173 177.089 129.236L105.76 106.06L177.089 82.8839Z",
-"M177.089 129.236C172.195 144.3 162.658 157.427 149.844 166.736L105.76 106.06L177.089 129.236Z",
-"M149.844 166.736C137.03 176.046 121.599 181.06 105.76 181.06L105.76 106.06L149.844 166.736Z",
-"M61.6762 45.3839C74.4898 36.0743 89.9217 31.0601 105.76 31.0601L105.76 106.06L61.6762 45.3839Z",
-"M34.4309 82.8839C39.3252 67.8206 48.8626 54.6935 61.6762 45.3839L105.76 106.06L34.4309 82.8839Z",
-"M34.4309 129.236C29.5365 114.173 29.5365 97.9472 34.4309 82.8839L105.76 106.06L34.4309 129.236Z",
-"M61.6762 166.736C48.8626 157.427 39.3252 144.3 34.4309 129.236L105.76 106.06L61.6762 166.736Z",
-"M105.76 181.06C89.9217 181.06 74.4898 176.046 61.6762 166.736L105.76 106.06L105.76 181.06Z",
-
+      "M149.844 45.3839C162.658 54.6935 172.195 67.8207 177.089 82.8839L105.76 106.06L149.844 45.3839Z",
+      "M177.089 82.8839C181.984 97.9472 181.984 114.173 177.089 129.236L105.76 106.06L177.089 82.8839Z",
+      "M177.089 129.236C172.195 144.3 162.658 157.427 149.844 166.736L105.76 106.06L177.089 129.236Z",
+      "M149.844 166.736C137.03 176.046 121.599 181.06 105.76 181.06L105.76 106.06L149.844 166.736Z",
+      "M61.6762 45.3839C74.4898 36.0743 89.9217 31.0601 105.76 31.0601L105.76 106.06L61.6762 45.3839Z",
+      "M34.4309 82.8839C39.3252 67.8206 48.8626 54.6935 61.6762 45.3839L105.76 106.06L34.4309 82.8839Z",
+      "M34.4309 129.236C29.5365 114.173 29.5365 97.9472 34.4309 82.8839L105.76 106.06L34.4309 129.236Z",
+      "M61.6762 166.736C48.8626 157.427 39.3252 144.3 34.4309 129.236L105.76 106.06L61.6762 166.736Z",
+      "M105.76 181.06C89.9217 181.06 74.4898 176.046 61.6762 166.736L105.76 106.06L105.76 181.06Z",
     ]
 
   }
@@ -112,10 +108,6 @@ function App() {
   const marksBottom = [1,2,3,4,5,6,7,8,9,10].map(i => {return {value:i, label: i,}})
 
   const [coloredPices, setColoredPices] = useState([0])
-
-  const test = (i) => {
-    console.log(i,"mhmm")
-  } 
 
   const container = {
     hidden: { opacity: 1, scale: 0 },
@@ -170,12 +162,13 @@ function App() {
     }
   }
 
-  const refTest = useRef(null)
   const cardValue2 = useRef(null)
   const cardValue3 = useRef(null)
   const cardValue4 = useRef(null)
   const cardValue5 = useRef(null)
   const cardValue6 = useRef(null)
+
+  const cardsRefs = useRef([])
 
   const dropAreaTop = useRef(null)
   const dropAreaBottom = useRef(null)
@@ -184,8 +177,9 @@ function App() {
 
   const [isCardOver, setIsCardOver] = useState(false)
   const [draggedCard, setDraggedCard] = useState(null)
-
-  let dargCollisions = [] 
+  
+  let dargCollisions = []
+  const [canPlaceCard, setCanPlaceCard] = useState(true)
 
   const handelDrag = (card) => {
 
@@ -273,21 +267,16 @@ function App() {
     }
     setDropAreaInFocus(null)
   }
-  
-
-  useEffect(() => {
-      // console.log("is card" , isCardOver);
-    }, [isCardOver])
     
-    const [dropAreaInFocus, setDropAreaInFocus] = useState(null)
-    const [showDropAreas, setShowDropAreas] = useState(false)
+  const [dropAreaInFocus, setDropAreaInFocus] = useState(null)
+  const [showDropAreas, setShowDropAreas] = useState(false)
 
-    const [timesDeviationTop, setTimesDeviationTop] = useState('')
-    const [timesDeviationBottom, setTimesDeviationBottom] = useState('')
+  const [timesDeviationTop, setTimesDeviationTop] = useState('')
+  const [timesDeviationBottom, setTimesDeviationBottom] = useState('')
 
-    const[resultDeviations, setResultDeviations] = useState({
-      top: '',
-      bottom: ''
+  const[resultDeviations, setResultDeviations] = useState({
+    top: '',
+    bottom: ''
   })
 
   const [showResult, setShowResult] = useState(false)
@@ -328,14 +317,13 @@ function App() {
 
   const [isNumberCardValid, setIsNumberCardValid] = useState(true)
 
-
-  // const handelDragStart = () => {
-  //   setShowDropAreas(true)
-  // }
-
-  // useEffect(() => {
-    
-  // }, [draggedCard])
+  const handelDragStart = (cardNumber) => {
+    setShowDropAreas(true)
+    if((timesDeviationTop != cardNumber & timesDeviationTop != '') ||
+    (timesDeviationBottom != cardNumber & timesDeviationBottom != '')){
+      setIsNumberCardValid(false)
+    }
+  }
 
 
   return (
@@ -343,17 +331,18 @@ function App() {
       <header className="App-header">
 
         
-        <div className="drag-area-container" ref={refTest}>
+        <div className="drag-area-container">
           
           <motion.ul className="drag-numbers-container">
             <li className="drag-number-cell">
               <motion.div 
                 ref={cardValue2} 
                 dragElastic={1}
+                onDragStart={() => handelDragStart(2)}
+                onDrag={() => handelDrag(cardValue2)} 
                 onDragEnd={() => handelDragEnd()}
                 drag
                 dragConstraints={{left:0, top:0, right:0 , bottom:0}}
-                onDrag={() => handelDrag(cardValue2)} 
                 className={`drag-number
                   {/* ${isNumberCardValid && 'valid'} */}
                 `}
@@ -363,11 +352,11 @@ function App() {
               <motion.div 
                 ref={cardValue3} 
                 dragElastic={1.2}
-                onDragStart={() => setShowDropAreas(true)}
+                onDragStart={() => handelDragStart(3)}
+                onDrag={() => handelDrag(cardValue3)} 
                 onDragEnd={() => handelDragEnd()}
                 drag 
                 dragConstraints={{left:0, top:0, right:0 , bottom:0}}
-                onDrag={() => handelDrag(cardValue3)} 
                 className={`drag-number
                   {/* ${isNumberCardValid && 'valid'} */}
                 `}
@@ -377,11 +366,11 @@ function App() {
               <motion.div 
                 ref={cardValue4} 
                 dragElastic={1}
-                onDragStart={() => setShowDropAreas(true)}
+                onDragStart={() => handelDragStart(4)}
+                onDrag={() => handelDrag(cardValue4)} 
                 onDragEnd={() => handelDragEnd()}
                 drag 
                 dragConstraints={{left:0, top:0, right:0 , bottom:0}}
-                onDrag={() => handelDrag(cardValue4)} 
                 className={`drag-number
                   {/* ${isNumberCardValid && 'valid'} */}
                 `}
@@ -391,11 +380,11 @@ function App() {
               <motion.div 
                 ref={cardValue5} 
                 dragElastic={1}
-                onDragStart={() => setShowDropAreas(true)}
+                onDragStart={() => handelDragStart(5)}
+                onDrag={() => handelDrag(cardValue5)} 
                 onDragEnd={() => handelDragEnd()}
                 drag 
                 dragConstraints={{left:0, top:0, right:0 , bottom:0}}
-                onDrag={() => handelDrag(cardValue5)} 
                 className={`drag-number
                   {/* ${isNumberCardValid && 'valid'} */}
                 `}
@@ -418,26 +407,22 @@ function App() {
               className={`deviation-frame undefined-multiplication ${showResult && 'equals'}`}
             >
               <div 
-                ref={dropAreaTop} 
-                style={{
-                    border: (showDropAreas && timesDeviationTop == '') ? 'dotted 2px' : '',
-                    borderColor: (dropAreaInFocus == dropAreaTop) ? 'green' : '',
-                    bottom: '-7px',
-                    position: 'relative'
-                }} 
-                className={`deviation-top  ${timesDeviationBottom != '' && 'show'}`}
+                ref={dropAreaTop}  
+                className={`deviation-top drop-area 
+                  ${(showDropAreas && timesDeviationTop == '') && 'show'}
+                  ${dropAreaInFocus == dropAreaTop && 'drop-color-green'}
+                  ${(dropAreaInFocus == dropAreaTop && isNumberCardValid == false) && 'drop-color-red'} 
+                `}
               >{timesDeviationTop}</div>
               <div className={`deviation-bar ${(timesDeviationTop != '' || timesDeviationBottom != '') && 'show'}`}></div>
 
               <div 
                 ref={dropAreaBottom}
-                style={{
-                    border: (showDropAreas && timesDeviationBottom == '') ? 'dotted 2px' : '',
-                    borderColor: (dropAreaInFocus == dropAreaBottom) ? 'green' : '',
-                    bottom: '-1px',
-                    position: 'relative'
-                }}
-                className={`deviation-bottom ${timesDeviationBottom != '' && 'show'}`}
+                className={`deviation-bottom drop-area 
+                  ${(showDropAreas && timesDeviationBottom == '') && 'show'}
+                  ${dropAreaInFocus == dropAreaBottom && 'drop-color-green'}
+                  ${(dropAreaInFocus == dropAreaBottom && isNumberCardValid == false) && 'drop-color-red'} 
+                `}
               > 
                 {timesDeviationBottom}
               </div>
@@ -490,7 +475,6 @@ function App() {
               <h1>{bottomValue}</h1>
             </div> */}
             <motion.svg width="213" height="213" viewBox="0 0 213 213" fill="none" xmlns="http://www.w3.org/2000/svg"
-              style={{cursor:'pointer'}}
               className="container"
               variants={svgContainer}
               initial="hidden"
@@ -502,7 +486,6 @@ function App() {
                     variants={svgItem}
                     initial="hidden"
                     animate="visible"
-                    onClick={() => test(idx)} 
                     key={idx} 
                     d={dpath} 
                     fill={coloredPices.includes(idx) ? "url('#myGradient')" : "#ffffff"} 
